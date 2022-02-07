@@ -104,14 +104,6 @@ class State(namedtuple("State", ["hallway", "rooms"])):
         for m in self.legal_room_moves():
             yield m
 
-    def print(self):
-        chars = ["A", "B", "C", "D", "."]
-        print("#" * 13)
-        print("#" + "".join(chars[p.value] for p in self.hallway) + "#")
-        print("###" + "#".join(chars[r[0].value] for r in self.rooms) + "###")
-        print("  #" + "#".join(chars[r[1].value] for r in self.rooms) + "#  ")
-        print("  " + "#" * 9 + "  ")
-
 def dijkstra(start, stop):
     to_visit = [(0, start)]
     visited = set()
